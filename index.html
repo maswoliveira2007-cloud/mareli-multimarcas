@@ -1,0 +1,529 @@
+<!-- Cole o código do seu site aqui embaixo e salve o arquivo -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mareli Multimarcas | Surf & Streetwear em Belém</title>
+    <!-- Fontes do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Ícones (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Variáveis de Cores */
+        :root {
+            --cor-fundo: #121212;
+            --cor-texto: #ffffff;
+            --cor-destaque: #f39c12;
+            /* Laranja/Amarelo da fachada */
+            --cor-whatsapp: #25D366;
+            --cor-whatsapp-hover: #1da851;
+            --cor-card: #1e1e1e;
+        }
+
+        /* Reset Básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.6;
+        }
+
+        /* Container Padrão */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Títulos */
+        h1,
+        h2 {
+            text-transform: uppercase;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            color: var(--cor-destaque);
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-block;
+            background-color: var(--cor-whatsapp);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background-color: var(--cor-whatsapp-hover);
+            transform: scale(1.05);
+        }
+
+        .btn i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        /* Header */
+        header {
+            background-color: #000;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid var(--cor-destaque);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--cor-destaque);
+        }
+
+        /* Sessão 1: Hero */
+        .hero {
+            /* Fundo escuro simulando uma imagem */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+
+        .prova-social-rapida {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .prova-social-rapida i {
+            color: #f1c40f;
+        }
+
+        /* Sessões Padrão */
+        section {
+            padding: 80px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Sessão 3: Produtos */
+        .grid-produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
+        .produto-item {
+            background-color: var(--cor-card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .produto-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--cor-destaque);
+        }
+
+        /* Sessão 4: Benefícios */
+        .beneficios-lista {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
+        .beneficio-card {
+            background-color: var(--cor-card);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            width: 300px;
+            border-top: 4px solid var(--cor-destaque);
+        }
+
+        .beneficio-card i {
+            font-size: 2.5rem;
+            color: var(--cor-destaque);
+            margin-bottom: 15px;
+        }
+
+        /* Sessão 5: Depoimentos */
+        .grid-depoimentos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
+        .depoimento-card {
+            background-color: var(--cor-card);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--cor-destaque);
+        }
+
+        .estrelas {
+            color: #f1c40f;
+            margin-bottom: 10px;
+        }
+
+        .autor {
+            font-weight: bold;
+            margin-top: 15px;
+            color: var(--cor-destaque);
+        }
+
+        /* Sessão 6: Localização */
+        .localizacao-flex {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .info-local {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .info-local p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .info-local i {
+            color: var(--cor-destaque);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .mapa {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .mapa iframe {
+            width: 100%;
+            height: 350px;
+            border-radius: 8px;
+            border: 2px solid #333;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #000;
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid #333;
+        }
+
+        footer p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Botão Flutuante WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .localizacao-flex {
+                flex-direction: column;
+            }
+
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">Mareli <span>Multimarcas</span></a>
+            <a href="https://wa.me/5591983254512?text=Olá! Vim pelo site e quero falar com um consultor." class="btn"
+                style="padding: 10px 20px; font-size: 0.9rem;">
+                <i class="fab fa-whatsapp"></i> Falar com Consultor
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <h1>O Melhor do Surf & Streetwear em Belém</h1>
+            <p>Vista as melhores marcas com qualidade premium, estilo único e o atendimento que você merece. Renove seu
+                guarda-roupa na Mareli Multimarcas.</p>
+            <a href="https://wa.me/5591983254512?text=Olá! Quero ver os lançamentos que estão na página inicial do site."
+                class="btn">
+                <i class="fab fa-whatsapp"></i> Quero ver os lançamentos via WhatsApp
+            </a>
+            <div class="prova-social-rapida">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                    class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <br>Avaliada com 4,4 no Google por nossos clientes.
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE A MARCA -->
+    <section style="background-color: #1a1a1a;">
+        <div class="container text-center">
+            <h2>Muito mais que uma loja, o seu estilo de vida</h2>
+            <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
+                Localizada no coração do Tapanã, em Belém do Pará, a <strong>Mareli Multimarcas</strong> nasceu para
+                trazer as maiores tendências da moda Surf e Streetwear até você. Trabalhamos com uma curadoria rigorosa
+                de peças, garantindo que você tenha acesso a roupas de alta durabilidade, caimento perfeito e muito
+                estilo. Seja para o dia a dia ou para o rolê de fim de semana, o seu próximo look está aqui.
+            </p>
+            <a href="https://wa.me/5591983254512?text=Olá! Quero montar um look com a ajuda de vocês." class="btn">
+                <i class="fab fa-whatsapp"></i> Falar com um Atendente e Montar Meu Look
+            </a>
+        </div>
+    </section>
+
+    <!-- PRODUTOS -->
+    <section class="container text-center">
+        <h2>Destaques da Semana</h2>
+        <p>Trabalhamos com peças exclusivas que esgotam rápido. Marcas como Attack, Nozes e Audaz.</p>
+
+        <div class="grid-produtos">
+            <!-- Os links das imagens abaixo são ilustrativos. Você vai trocar pelas fotos da sua loja! -->
+            <div class="produto-item">
+                <!-- SUBSTITUIR PELA SUA FOTO DA CAMISA ATTACK -->
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80"
+                    alt="Camiseta Premium">
+            </div>
+            <div class="produto-item">
+                <!-- SUBSTITUIR PELA SUA FOTO DAS BERMUDAS -->
+                <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=500&q=80"
+                    alt="Calças e Bermudas">
+            </div>
+            <div class="produto-item">
+                <!-- SUBSTITUIR PELA FOTO DOS BONÉS -->
+                <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=500&q=80" alt="Bonés">
+            </div>
+            <div class="produto-item">
+                <!-- SUBSTITUIR PELA FOTO DA CAMISA NOZES/AUDAZ -->
+                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=500&q=80"
+                    alt="Moda Streetwear">
+            </div>
+        </div>
+
+        <p style="color: #ff6b6b; font-weight: bold; margin-bottom: 20px;">
+            <i class="fas fa-exclamation-circle"></i> Atenção: Nosso estoque é dinâmico. Algumas peças da vitrine podem
+            esgotar a qualquer momento.
+        </p>
+        <a href="https://wa.me/5591983254512?text=Olá! Quero consultar os tamanhos e peças disponíveis do site."
+            class="btn">
+            <i class="fab fa-whatsapp"></i> Consultar tamanhos disponíveis no WhatsApp
+        </a>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section style="background-color: #1a1a1a;">
+        <div class="container text-center">
+            <h2>Por que escolher a Mareli?</h2>
+            <div class="beneficios-lista">
+                <div class="beneficio-card">
+                    <i class="fas fa-gem"></i>
+                    <h3>Qualidade Premium</h3>
+                    <p>Trabalhamos apenas com marcas renomadas e peças de alto padrão que duram.</p>
+                </div>
+                <div class="beneficio-card">
+                    <i class="fas fa-tags"></i>
+                    <h3>Preço Justo</h3>
+                    <p>As melhores marcas com condições que cabem no seu bolso e valem o investimento.</p>
+                </div>
+                <div class="beneficio-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Atendimento VIP</h3>
+                    <p>Consultoria de estilo personalizada pelo WhatsApp ou na nossa loja física.</p>
+                </div>
+            </div>
+            <a href="https://wa.me/5591983254512?text=Olá! Quero tirar algumas dúvidas com um consultor." class="btn">
+                <i class="fab fa-whatsapp"></i> Quero falar com um consultor agora
+            </a>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="container text-center">
+        <h2>Quem compra, aprova e recomenda</h2>
+        <p>Veja o que nossos clientes dizem sobre a experiência Mareli no Google Maps:</p>
+
+        <div class="grid-depoimentos">
+            <div class="depoimento-card">
+                <div class="estrelas">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p>"Excelente loja ótimos preços, bom atendimento recomendo"</p>
+                <div class="autor">- Gleydson</div>
+            </div>
+            <div class="depoimento-card">
+                <div class="estrelas">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p>"Atendimento de qualidade, precos bons, roupas de qualidade."</p>
+                <div class="autor">- central da split ar condicionado</div>
+            </div>
+            <div class="depoimento-card">
+                <div class="estrelas">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p>"Gostei muito atendimento ótimo roupa bonita De alta qualidade"</p>
+                <div class="autor">- Ithalo Aviz amorim</div>
+            </div>
+        </div>
+        <a href="https://wa.me/5591983254512?text=Olá! Li os depoimentos do site e quero ter esse atendimento VIP também."
+            class="btn">
+            <i class="fab fa-whatsapp"></i> Quero ter esse atendimento VIP via WhatsApp
+        </a>
+    </section>
+
+    <!-- LOCALIZAÇÃO -->
+    <section style="background-color: #1a1a1a;">
+        <div class="container text-center">
+            <h2>Venha nos visitar!</h2>
+            <p>Prefere experimentar presencialmente? Nossa loja está de portas abertas esperando por você.</p>
+
+            <div class="localizacao-flex">
+                <div class="info-local" style="text-align: left;">
+                    <p><i class="fas fa-map-marker-alt"></i> <strong>Endereço:</strong> Al. Um - Tapanã, Belém - PA,
+                        66833-010</p>
+                    <p><i class="fas fa-phone-alt"></i> <strong>Telefone/WhatsApp:</strong> (91) 98325-4512</p>
+                    <br>
+                    <!-- Imagem da fachada da loja (Substitua quando colocar no servidor) -->
+                    <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80"
+                        alt="Fachada Mareli"
+                        style="width: 100%; border-radius: 8px; border: 2px solid var(--cor-destaque);">
+                </div>
+                <div class="mapa">
+                    <!-- IFRAME DO GOOGLE MAPS (Ajustado para o Tapanã, Belém) -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.675628581691!2d-48.46820542562862!3d-1.3712952357388703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48a97c9c22b9b%3A0xc3cf7f8d6fb2478f!2sTapan%C3%A3%2C%20Bel%C3%A9m%20-%20PA!5e0!3m2!1spt-BR!2sbr!4v1689255000000!5m2!1spt-BR!2sbr"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <br><br>
+            <a href="https://wa.me/5591983254512?text=Olá! Vi o endereço no site e estou indo visitar a loja física."
+                class="btn" style="font-size: 1.3rem; padding: 20px 40px;">
+                <i class="fab fa-whatsapp"></i> Chamar no WhatsApp: (91) 98325-4512
+            </a>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="container">
+            <h3 style="color: white; margin-bottom: 10px;">Mareli Multimarcas</h3>
+            <p>Roupas Multimarcas | Surf & Street Wear</p>
+            <p>Al. Um - Tapanã, Belém - PA</p>
+            <p style="margin-top: 20px;">&copy; 2024 Mareli Multimarcas. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- BOTÃO FLUTUANTE WHATSAPP -->
+    <a href="https://wa.me/5591983254512?text=Olá! Vi o site e gostaria de um atendimento." class="whatsapp-float"
+        target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+
+</html>
